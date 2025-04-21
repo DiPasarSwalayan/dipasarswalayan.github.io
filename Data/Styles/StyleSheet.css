@@ -1,0 +1,495 @@
+@import url(https://db.onlinewebfonts.com/c/1242935f4347ce327fea3a0da2874cfc?family=Vulf+Sans);
+
+:root {
+    --colourBackground: white;
+    --colourFaded: rgba(200,200,200,1);
+    --colourAccent: rgba(50,50,50,1);
+    --colourMain: black;
+    --fadeAmount: 1%;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.CanvasContainer {
+    position: fixed;
+    left: -100%;
+    animation: 700ms canvasSlideInAnim 300ms ease-out forwards;
+}
+@keyframes canvasSlideInAnim {
+    to {
+        left: 0%;
+    }
+}
+@property --factor {
+    syntax: "<length>";
+    inherits: false;
+}
+#container3D canvas {
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+.canvasAnimator canvas {
+    --factor: 1;
+    animation: canvasAnim 1ms linear forwards;
+    animation-timeline: scroll(y);
+}
+@keyframes canvasAnim{
+    0% {
+        left: 0%;
+        top: 5%;
+        transform: scale(1);
+        --factor: 1.5;
+    }
+    13% {
+        left: 0%;
+        top: 0%;
+        transform: scale(1);
+        --factor: 1;
+    }
+    15% {
+        left: -20%;
+        top: 10%;
+        transform: scale(1.5);
+        --factor: 0.3;
+    }
+    33% {
+        left: -20%;
+        top: -10%;
+        transform: scale(1.5);
+        --factor: 0.3;
+    }
+    36% {
+        left: 0%;
+        top: 35%;
+        transform: scale(1.8);
+        --factor: 0.15;
+    }
+    66% {
+        left: 0%;
+        top: -10%;
+        transform: scale(1.8);
+        --factor: 0.15;
+    }
+    67% {
+        left: 15%;
+        transform: scale(1);
+        --factor: 1;
+    }
+    72% {
+        left: 15%;
+        top: 10%;
+        transform: scale(1.3);
+        --factor: 0.5;
+    }
+    90% {
+        left: 15%;
+        top: -10%;
+        transform: scale(1.3);
+        --factor: 0.5;
+    }
+    100% {
+        left: 100%;
+        top: -70%;
+        transform: scale(1);
+        --factor: 1;
+    }
+}
+
+.BackgroundShadow {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    filter: blur(150px);
+    opacity: 0;
+    background: radial-gradient(ellipse,rgba(190, 190, 190, 1) 0%, rgba(255, 255, 255, 0) 40%);
+    animation: BackgroundShadowAnim 1ms linear forwards;
+    animation-timeline: scroll(y);
+    animation-range: 10vh 250vh;
+}
+@keyframes BackgroundShadowAnim{
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+html {
+    background-color: white;
+    font-family: 'Vulf Sans';
+    scroll-behavior: smooth;
+    overflow: scroll;
+    overflow-x: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    animation: 700ms startFadeInAnim 100ms linear forwards;
+}
+@keyframes startFadeInAnim{
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    z-index: 999999999;
+    position: fixed;
+    top:0px;
+}
+footer {
+    background-color:lightgray;
+    width: 100%;
+    height: 70px;
+    z-index: 99999;
+    bottom: 0px;
+}
+
+.headerBack {
+    z-index: 998;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 5px 18px rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+    animation: headerBackAnim 1ms linear forwards;
+    animation-timeline: scroll(y);
+    animation-range: 70vh 100vh;
+}
+@keyframes headerBackAnim {
+    to {
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 5px 18px rgba(0,0,0,0.15);
+        backdrop-filter: blur(5px);
+    }
+}
+
+.headerButtons {
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    float: right;
+    margin-right: 2px;
+    width: 100%;
+    animation: headerTopDivAnim 1ms linear forwards;
+    animation-timeline: scroll(y);
+    animation-range: 0px 500px;
+}
+@keyframes headerTopDivAnim {
+    to {
+        width: 71.5%;
+    }
+}
+
+h1 {
+    z-index: -100;
+    font-size: 5vw;
+    position: sticky;
+    text-align: center;
+    justify-self:center;
+    left: 50%;
+    top: 90px;
+    transform: translate(-50%, -50%);
+}
+h3 {
+    width:90%;
+    font-size: 3vw;
+    display: inline;
+    text-align: justify-all;
+}
+h3.OverlayHeader {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 5;
+}
+
+.header {
+    cursor: pointer;
+    z-index: 999;
+    font-size: 3vw;
+    position: absolute;
+    text-align: center;
+    top: -40px;
+    left: 14%;
+    transform: translate(-50%, 0%);
+}
+.headerLogo {
+    cursor: pointer;
+    z-index: 999;
+    font-size: 5vw;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: -30px;
+    transform: translate(-50%, 0%);
+    animation: headerLogoAnim 1ms linear both;
+    animation-timeline: scroll(y);
+    animation-range: 0px 500px;
+}
+.headerLogo:active {
+    cursor: default;
+}
+@keyframes headerLogoAnim {
+    to {
+        font-size: 3vw;
+        top: -40px;
+        left: 14%;
+    }
+}
+
+.mainTitle {
+    top: 150px;
+    animation: mainTitleAnim 1ms linear both;
+    animation-timeline: scroll(y);
+    animation-range: 0px 500px;
+}
+@keyframes mainTitleAnim {
+    to {
+        top: 90px;
+    }
+}
+
+section {
+    height: 100vh;
+    padding: 0;
+}
+
+.Button {
+    z-index: inherit;
+    transition-duration: 0.2s;
+    border: 2px solid rgba(0,0,0,1);
+    border-radius: 4px;
+    color: rgba(0,0,0,255);
+    background-color: rgba(0,0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 2px;
+    padding: 0px 2px;
+    width: 100%;
+    height: 80%;
+}
+    .Button:hover {
+        cursor: pointer;
+        background-color: rgba(0,0,0,1);
+        color: rgba(255,255,255,255);
+        padding: 0px 10px;
+    }
+    .Button:active {
+        cursor: default;
+        background-color: rgba(0,0,0,0);
+        color: rgba(0,0,0,255);
+        padding: 0px 1px;
+    }
+
+.Card {
+    justify-self: center;
+    align-self: center;
+    padding: 2em;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.65);
+    text-align: center;
+    border-radius: 10px;
+}
+.verticalCard {
+    align-self: center;
+    padding: 2em;
+    width: 30%;
+    height: 80%;
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.65);
+    text-align: center;
+    border-radius: 10px;
+}
+.horizontalCard {
+    justify-self:center;
+    padding: 2em;
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    box-shadow: inset 0px 0px 10px 3px rgba(0,0,0,0.65);
+    text-align: center;
+    border-radius: 10px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.border::after, .border::before {
+    position: absolute;
+    z-index: -1;
+    --angle: 0deg;
+    content: '';
+    inset: -5px;
+    border-radius: inherit;
+    background-image: conic-gradient(from var(--angle), rgb(0, 175, 33), rgb(0, 255, 154), rgb(0, 175, 33));
+    animation: 3s spin linear infinite;
+}
+    .border::before {
+        filter: blur(20px);
+    }
+    @keyframes spin {
+        from{
+            --angle: 0deg;
+        }
+        to{
+            --angle: 360deg;
+        }
+    }
+
+.slideIn {
+    animation: slideInAnim 1ms linear both;
+    animation-timeline: view(y);
+    animation-range: cover;
+}
+@keyframes slideInAnim{
+    0% {
+        top: 400px;
+    }
+    40% {
+        top: 100px;
+    }
+    70% {
+        top: 200px;
+    }
+    100% {
+        top: -100px;
+    }
+}
+
+.Overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease-out;
+    background-color: white;
+    border-radius: 9px;
+    z-index: 3;
+}
+    .OverlayContainer {
+        height: 95%;
+        display: flex;
+    }
+    .OverlayContainer:hover .Overlay {
+        opacity:1;
+    }
+    .OverlayContainer p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .OverlayContainer img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 9px;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        transition: .3s ease-out;
+        filter: blur(0px);
+    }
+
+.WhiteBackground {
+    background-color:rgba(255, 255, 255, 0.9);
+}
+
+a {
+    all: unset;
+}
+p {
+    font-size: 1.3vw;
+}
+
+.CenterSticky {  
+    margin: 0% 30% 0% 30%;
+    top: 50%;
+    font-size: 2vw;
+    position: sticky;
+    transform: translate(0%, -50%);
+}
+.TextReveal {
+    color: rgba(0, 0, 0, 0);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(to right, black, black);
+    animation: TextRevealAnimation linear forwards;
+    animation-timeline: view();
+    animation-range: cover 70% cover 180%;
+}
+@keyframes TextRevealAnimation {
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+@property --fade {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+p.fade {
+    background-image: linear-gradient(to right, var(--colourMain) var(--fade), var(--colourFaded) calc(var(--fade) + var(--fadeAmount)));
+    background-clip: text;
+    color: transparent;
+    display: inline;
+    animation: textAnim 1ms linear both;
+    animation-timeline: view();
+    animation-range: cover calc(14% + var(--fadeAmount));
+}
+@keyframes textAnim{
+    from {
+        --fade: calc(0% - var(--fadeAmount));
+    }
+    to {
+        --fade: 100%;
+    }
+}

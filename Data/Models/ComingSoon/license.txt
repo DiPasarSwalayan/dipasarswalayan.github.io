@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sedan car covered with a gray car cloth 3D scan
+* source:	https://sketchfab.com/3d-models/sedan-car-covered-with-a-gray-car-cloth-3d-scan-5818270ead0649498ab6120604b19f7f
+* author:	Alben Tan (https://sketchfab.com/albentan2012)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sedan car covered with a gray car cloth 3D scan" (https://sketchfab.com/3d-models/sedan-car-covered-with-a-gray-car-cloth-3d-scan-5818270ead0649498ab6120604b19f7f) by Alben Tan (https://sketchfab.com/albentan2012) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
