@@ -23,7 +23,7 @@
     }
 }
 @property --factor {
-    syntax: "<length>";
+    syntax: "<number>";
     inherits: false;
 }
 #container3D canvas {
@@ -33,7 +33,7 @@
     position: fixed;
 }
 .canvasAnimator canvas {
-    --factor: 1;
+    --factor: 1.5;
     animation: canvasAnim 1ms linear forwards;
     animation-timeline: scroll(y);
 }
@@ -48,7 +48,7 @@
         left: 0%;
         top: 0%;
         transform: scale(1);
-        --factor: 1;
+        --factor: 1.5;
     }
     15% {
         left: -20%;
@@ -214,8 +214,8 @@ h1 {
     text-align: center;
     justify-self:center;
     left: 50%;
-    top: 90px;
-    transform: translate(-50%, -50%);
+    top: 40px;
+    transform: translate(-50%, 0%);
 }
 h3 {
     width:90%;
@@ -235,19 +235,18 @@ h3.OverlayHeader {
     font-size: 3vw;
     position: absolute;
     text-align: center;
-    top: -40px;
+    top: 33px;
     left: 14%;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -110%);
 }
 .headerLogo {
     cursor: pointer;
     z-index: 999;
     font-size: 5vw;
-    position: absolute;
-    text-align: center;
+    position: fixed;
     left: 50%;
-    top: -30px;
-    transform: translate(-50%, 0%);
+    top: 70px;
+    transform: translate(-50%, -90%);
     animation: headerLogoAnim 1ms linear both;
     animation-timeline: scroll(y);
     animation-range: 0px 500px;
@@ -258,13 +257,14 @@ h3.OverlayHeader {
 @keyframes headerLogoAnim {
     to {
         font-size: 3vw;
-        top: -40px;
+        top: 33px;
         left: 14%;
+        transform: translate(-50%, -110%);
     }
 }
 
 .mainTitle {
-    top: 150px;
+    top: 135px;
     animation: mainTitleAnim 1ms linear both;
     animation-timeline: scroll(y);
     animation-range: 0px 500px;

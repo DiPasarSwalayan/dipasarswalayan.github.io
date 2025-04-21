@@ -63,10 +63,12 @@ scene.add(topLight);
 const ambientLight = new THREE.AmbientLight(0x333333, 3);
 scene.add(ambientLight);
 
+
 function animate() {
     requestAnimationFrame(animate);
+    let scrollAspect = 991 / window.innerHeight;
     for (let i = 0; i < objects.length; i++) {
-        objects[i].position.y = (window.scrollY / 5) - (i * 200) - 600;
+        objects[i].position.y = ((window.scrollY / 5) * scrollAspect) - (i * 200) - 600;
     } 
     renderer.render(scene, camera);
 }
